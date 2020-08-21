@@ -1,0 +1,92 @@
+---
+title: "SARS-CoV-2 metaanalysis master data dictionary"
+author: "Joe Standing"
+date: "5/6/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+```
+
+# Introduction
+
+This is a data dictionary for the modelling dataset created for SARS-CoV-2 viral kinetic modelling.
+
+
+
+```{r, echo = FALSE}
+data.dict <- data.frame(matrix(nrow = 21, ncol = 3))
+colnames(data.dict) <- c("variable_name", "description", "values")
+data.dict[1, ] <- c("id_anon", "randomised patient id number", "numeric")
+data.dict[2, ] <- c("t_symp_days", "days since symptom onset", "numeric")
+data.dict[3, ] <- c("sample_site", "Where sample taken from, as reported in the paper",
+                    "text")
+data.dict[4, ] <- c("sample_site_num", "Where sample taken from, as reported in the paper",
+                    "numeric")
+data.dict[5, ] <- c("sample_site_group", "Grouping of sample site variable",
+                    "text")
+data.dict[6, ] <- c("sample_site_group_num", "Grouping of sample site variable",
+                    "numeric")
+data.dict[7, ] <- c("vl_quality", "quality assessment of viral load", 
+                     "1 = reported as viral load in copies per mL or calibration curve given in paper or provided by authors; 2 = PCR method reported and calibration curve from e.g. Vogel et al used; 3 = PCR method not reported or no calibration curve available e.g. in Vogel ")
+data.dict[8, ] <- c("assay", "For VL qulaity 2 data only, PCR method, 1=orf;2=ngene;3=rdrp;4=egene",
+                    "numeric or NA")
+data.dict[9, ] <- c("dv_ct", "viral load Ct value", "numeric or NA if viral load repored in cp/mL")
+data.dict[10, ] <- c("dv_vl_log10_cpml", "log10 viral load in cp/mL", 
+                    "numeric either direcly from paper or derived from calibration curve")
+data.dict[11, ] <- c("dv_vl_log_cpml", "natural log viral load in cp/mL", 
+                    "numeric either direcly from paper or derived from calibration curve")
+data.dict[12, ] <- c("bloq_1", "Below limit of quantification", "1=yes")
+data.dict[13, ] <- c("blod_1", "Below limit of detection", "may be equal to LOQ")
+data.dict[14, ] <- c("loq_value_log10_cpml", "log10 limit of quantification value", "numeric")
+data.dict[15, ] <- c("lod_value_log10_cpml", "log10 limit of detection",
+                    "numeric")
+data.dict[16, ] <- c("loq_value_log_cpml", "natural log limit of quantification value", "numeric")
+data.dict[17, ] <- c("lod_value_log_cpml", "natural log limit of detection",
+                    "numeric")
+
+data.dict[18, ] <- c("age_y", "age in y", "numeric or NA if missing")
+data.dict[19, ] <- c("male", "male or female", "1 = male, 0 = female, NA = unknown,
+                     fraction = proportion of males where individual sex not reported")
+data.dict[20, ] <- c("fever", "Presence of fever >37.5 degrees", "1, 0, NA")
+data.dict[21, ] <- c("icu", "Required ICU admission", "1, 0, NA")
+data.dict[22, ] <- c("days_on_icu", "Number of days on icu", "numeric or NA")
+data.dict[23, ] <- c("vent", "Need for mechanical ventilation", "1, 0, NA")
+data.dict[25, ] <- c("days_ventilated", "days on ventilator", "numeric or NA if missing")
+data.dict[26, ] <- c("died", "whether patient died", "1, 0, NA")
+data.dict[27, ] <- c("time_to_death", "time since symptom onset to death in days", 
+                     "numeric or NA if missing")
+data.dict[28, ] <- c("disease_status", "0-3 ordinal, 0=Asymptomatic;1=mild symptoms;2=required supplemental oxygen;3=required ventilation", 
+                     "numeric or NA if missing")
+data.dict[29, ] <- c("drug_quality", "Whether drug status known on each t_symp_day 1=yes,2=drugs known but days not, N3 unknown whether drugs given or not", 
+                     "numeric")
+data.dict[30, ] <- c("drug_name", "antiviral drug or drug combination", 
+                     "character or NA if missing")
+data.dict[31, ] <- c("drug_code", "antiviral drug or drug combination", 
+                     "numeric or NA if missing")
+data.dict[32, ] <- c("anydrug", "whether received any antiviral", 
+                     "character or NA if missing")
+data.dict[33, ] <- c("drug_lpvr", "whether received lopinavir/ritonavir alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+data.dict[34, ] <- c("drug_ifn", "whether received interferon alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+data.dict[35, ] <- c("drug_ifn_alpha", "whether received interferon alpha alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+data.dict[36, ] <- c("drug_ifn_beta", "whether received interferon beta alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+data.dict[37, ] <- c("drug_cqhcq", "whether received hydroxychloroquine or chloroquine alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+data.dict[38, ] <- c("drug_remd", "whether received remdesivir alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+data.dict[39, ] <- c("drug_azit", "whether received azithromycin alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+data.dict[40, ] <- c("drug_riba", "whether received ribavirin  alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+data.dict[41, ] <- c("drug_umif", "whether received umifenovir alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+data.dict[42, ] <- c("drug_thym", "whether received thymalfasin alone or in combination", 
+                     "1=yes, 0 = 0 or NA if missing")
+kable(data.dict)
+```
