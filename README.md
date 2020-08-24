@@ -1,6 +1,11 @@
 # SARS-CoV-2-viral-dynamic-meta-analysis
 A patient-level meta analysis of viral dynamics in patients with SARS-CoV-2 with a focus on modelling response to antivirals.
 
+To cite this work please read and cite the pre-print of the manuscript available at:
+
+https://www.medrxiv.org/content/10.1101/2020.08.20.20178699v1
+
+
 ## Protocol folder
 
 Contains study protocol
@@ -8,6 +13,7 @@ Contains study protocol
 ## Data and Code folder
 
 Contains:
+
 #. Master dataset: SARSCoV2_viral_dynamics_200620.csv
 #. Data dictionary for the master dataset: master_data_dictionary.html
 #. R code for the primary time to event analysis: survival_modeling_full_data.R
