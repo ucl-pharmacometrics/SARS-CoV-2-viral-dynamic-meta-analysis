@@ -1,9 +1,9 @@
 # SARS-CoV-2-viral-dynamic-meta-analysis
 A patient-level meta analysis of viral dynamics in patients with SARS-CoV-2 with a focus on modelling response to antivirals.
 
-To cite this work please read and cite the pre-print of the manuscript available at:
+To cite this work please read and cite the manuscript:
 
-https://www.medrxiv.org/content/10.1101/2020.08.20.20178699v1
+doi: 10.1002/cpt.2223
 
 
 ## Protocol folder
